@@ -1,0 +1,273 @@
+
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+header {
+    background-color: #000000;
+    color: #00FF00;
+    font-family: arial;
+    width: 100%;
+    padding: 5px;
+
+}
+@media(min-width: 320px) and (max-width: 450px) {
+
+    header {
+      text-align: center;
+    
+    }
+}
+
+h3 {
+    font-size: 1.9rem;
+    font-family: arial;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+h4 {
+    font-size: 1rem;
+    font-family: arial;
+    margin: 0;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    color: #00FF00;
+
+}
+
+body {
+    background-color: #1C1C1C;
+}
+
+.conteiner {
+    display: block;
+    background-color: #808080;
+    width: 95%;
+    box-shadow: 2px 2px 10px #F5F5F5;
+    margin: 0 auto;
+    max-width: 90%;
+    max-height: 90%;
+    min-width: 0;
+    min-height: 0;
+    margin-top: 40px;
+}
+
+footer {
+    font-family: arial;
+    color: #708090;
+    background: #000000;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+p {
+    font-family: arial;
+    text-align: justify;
+    padding: 10px;
+    size: 1.6rem;
+}
+
+h1 {
+    font-family: arial;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 3.2rem;
+    color: #32CD32;
+}
+
+h2 {
+    font-family: arial;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 1.9rem;
+    color: #00FF00;
+}
+.texto-true{
+    font-family: arial;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 1.6rem;
+    padding-top: 10px;
+    color: #00FF00;
+}
+
+.texto-footer {
+
+    font-family: arial;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 1.6rem;
+    padding-top: 10px;
+}
+
+.compre {
+    background-color: #DA70D6;
+    width: 150px;
+    height: 100px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    margin-top: 10%;
+    z-index: 1;
+}
+
+h5 {
+    font-family: arial;
+    text-align: center;
+    padding: 5px;
+    font-size: 1.9rem;
+}
+
+button {
+    font-family: arial;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 1.9rem;
+    background-color: #FF1493;
+    color: #000000;
+    border: solid;
+}
+
+#grid-conteiner {
+    margin-top: 5px;
+    background-color: #696969;
+    padding: 5px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid : 1px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+
+}
+
+.grid div {
+    background-color: #fff;
+    font-family: arial;
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 2px;
+}
+
+#formulario {
+    background-color: #A9A9A9;
+    text-shadow: 1px 1px #000000;
+
+}
+
+.formulario-contato {
+    font-family: arial;
+    font-size: 1.8rem;
+    padding: 10px;
+    text-align: left;
+    margin-left: 5%;
+    font-weight: bold;
+    text-shadow: 1px 1px #000000;
+}
+
+input {
+    font-family: sans-serif;
+    font-size: 1.7rem;
+    padding: 5px;
+
+}
+
+.dados-formulario {
+    width: 70%;
+
+}
+
+nav {
+    text-align: right;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: arial;
+    font-size: 1.6rem;
+    margin-right: 2%;
+    word-spacing: 20px;
+    color: #00FF00;
+}
+@media(min-width: 320px) and (max-width: 450px) {
+
+    nav {
+        text-align: right;
+        margin-top: 10px;
+        font-weight: bold;
+        font-family: arial;
+        font-size: 1.6rem;
+        word-spacing: 15px;
+        color: #00FF00;
+    }
+}
+a {
+    
+    color: #00FF00;
+    transition: all 600ms ease-in-out;
+}
+
+a:hover {
+    background-color: #00FF00;
+}
+
+#enviar {
+    background-color: #696969;
+    border-radius: 15%;
+    box-shadow: 3px 3px #000000;
+}
+
+#limpar {
+    background-color: #696969;
+    border-radius: 15%;
+    box-shadow: 3px 3px #000000;
+}
+
+.img-grid {
+    width: 90%;
+    height: 60%;
+    border-radius: 20px;
+}
+
+.texto-grid {
+    font-family: arial;
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.link-grid {
+    color: #1C1C1C;
+    background-color: #778899;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+ul , li {
+font-size: 1.6rem;
+font-family: arial;
+text-align: left;
+margin-left: 30px;
+padding-bottom: 10px;
+}
+
+.img-grid{
+    transition: 300ms ease-in-out;
+}
+
+img:hover{
+    transform: translate(2% , 2%) scale(1.3) rotate(2deg);
+    border: solid #696969;
+    box-shadow: #1C1C1C;
+}

@@ -1,0 +1,148 @@
+❌ My sklls Fullstack Ruby on Rails Engineer:
+
+
+Sistema operacional Linux
+
+-------------------------------------------------------------------------------------------------------------
+
+1️⃣ Ruby on Rails (Backend API)
+🛠️ 1. Backend Avançado:
+GraphQL: Para APIs mais flexíveis e eficientes.
+Background Jobs: Sidekiq para tarefas assíncronas.
+Mensageria: RabbitMQ ou Kafka para sistemas distribuídos.
+Cache: Redis para melhorar a performance.
+
+🔥 Complementos para seu Aprendizado
+1️⃣ Ruby on Rails (Backend)
+✔ WebSockets (ActionCable) – Para comunicação em tempo real. ✔ API Rate Limiting – Uso do Rack::Attack para prevenir abusos na API. ✔ Testes Automatizados – RSpec para testes unitários e Capybara para testes de integração.
+
+📌 Onde aprender:
+
+Rails Guides
+
+Awesome Rails
+
+-----------------------------------------------------------------------------------------------------------------
+
+2️⃣ JavaScript (Linguagem do Frontend)
+ React (Framework Frontend)
+🎨 2. Frontend Avançado:
+Tailwind CSS: (Para design rápido e consistente Estilização do Frontend)
+Stimulus.js + Hotwire: Alternativa leve ao React para apps Rails.
+
+2️⃣ Frontend (Melhorias)
+✔ Next.js – Alternativa poderosa ao React. ✔ Storybook – Para desenvolver componentes isoladamente e documentá-los. ✔ GraphQL com Apollo Client – Para consumo de APIs GraphQL no React.
+
+📌 Onde aprender:
+
+React Docs
+
+Next.js Docs
+
+------------------------------------------------------------------------------------------------------------------
+
+🌐 3. DevOps e Infraestrutura:
+Docker: Para isolar aplicações em containers.
+CI/CD: GitHub Actions para automações de build e deploy.
+Onde aprender:
+
+3️⃣ DevOps e Infraestrutura
+✔ Kubernetes – Para orquestração de containers. ✔ Terraform – Para infraestrutura como código. ✔ Monitoramento com Prometheus e Grafana – Para análise de performance.
+
+📌 Onde aprender:
+
+Docker Docs
+
+Kubernetes Docs
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+🗄️ 4. Banco de Dados:
+PostgreSQL Avançado: Indexação, JSONB, otimizações.
+ElasticSearch: Para buscas complexas.
+
+
+4️⃣ Banco de Dados e Performance
+✔ Sharding no PostgreSQL – Para distribuir dados em diferentes servidores. ✔ Redis Streams – Alternativa ao Kafka para processamento de eventos. ✔ Query Optimization – Uso de EXPLAIN ANALYZE para melhorar performance.
+
+📌 Onde aprender:
+
+PostgreSQL Docs
+
+ElasticSearch Docs
+
+
+----------------------------------------------------------------------------------------------------------------
+
+🔐 5. Segurança:
+Autenticação JWT: Para APIs seguras.
+OWASP: Boas práticas de segurança para web apps.
+
+
+
+
+5️⃣ Segurança e Boas Práticas
+✔ OAuth 2.0 – Para autenticação social (Google, Facebook). ✔ Content Security Policy (CSP) – Para proteger contra ataques XSS. ✔ Segurança com DevSecOps – Integrando segurança no pipeline CI/CD.
+
+📌 Onde aprender:
+
+OWASP Top 10
+
+JWT Docs
+
+
+
+----------------------------------------------------------------------------------------------------------------
+
+🖥️ 6. Outras Linguagens:
+Golang
+
+
+
+6️⃣ Outras Linguagens para Expandir
+✔ Rust – Para desenvolvimento seguro e de alta performance. ✔ Python (FastAPI) – Alternativa leve para APIs. ✔ Elixir/Phoenix – Para aplicações escaláveis e concorrentes.
+
+📌 Onde aprender:
+
+Rust Docs
+
+FastAPI Docs
+
+
+---------------------------------------------------------------------------------------------------------------
+
+🔄 7. Design Patterns e Arquitetura:
+Service Objects, Decorators: Para código mais limpo e escalável.
+DDD (Domain-Driven Design): Estruturação de aplicações complexas.
+
+------------------------------------------------------------------------------------------------------------
+
+8*
+
+Automação de testes web com Ruby, Capybara e RSpec
+BDD com Cucumber, Capybara e RSpec
+Testes em aplicações modernas com Cypress e Vue.js
+Testes end-to-end
+Integração contínua com Jenkins, Docker, Git, Selenium e Ruby
+Construção de pipelines automatizados, execução de testes contínuos em containers, relatórios com Cucumber Reports e versionamento de código.
+Desenvolvimento orientado a testes (TDD) e BDD com RSpec e Cucumber
+Implementação de testes unitários e de aceitação desde o início do desenvolvimento, garantindo maior qualidade e cobertura.
+Automação de testes mobile com Appium e Cucumber (Android)
+Escrita de cenários BDD para aplicações Android, com execução em dispositivos reais ou emuladores.
+
+
+
+------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+

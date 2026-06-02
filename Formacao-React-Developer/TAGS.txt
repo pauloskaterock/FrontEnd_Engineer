@@ -1,0 +1,72 @@
+📋 Tags Estruturais
+
+<html>: Define o documento como HTML.
+<head>: Contém metadados (não visíveis).
+<title>: Título da página (aparece na aba do navegador).
+<body>: Conteúdo visível da página.
+<header>: Cabeçalho da página ou seção.
+<footer>: Rodapé da página ou seção.
+<main>: Conteúdo principal (única vez por página).
+<section>: Agrupa conteúdo relacionado.
+<article>: Conteúdo independente (artigos, posts).
+<nav>: Links de navegação.
+<aside>: Conteúdo complementar (barras laterais).
+<div>: Contêiner genérico para blocos.
+<span>: Contêiner genérico para linha.
+
+🖋 Tags de Formatação de Texto
+<h1> a <h6>: Títulos (h1 é o mais importante).
+<p>: Parágrafos.
+<br>: Quebra de linha.
+<hr>: Linha horizontal.
+<strong>: Texto em negrito (semântico).
+<b>: Texto em negrito (sem semântica).
+<em>: Texto em itálico (semântico).
+<i>: Texto em itálico (sem semântica).
+<mark>: Destaca texto (amarelo).
+<blockquote>: Citação em bloco.
+<pre>: Texto pré-formatado.
+<code>: Código-fonte.
+
+🔗 Tags de Links e Mídia
+<a>: Links. Ex: <a href="url">Texto</a>
+<img>: Imagens. Ex: <img src="url" alt="descrição">
+<audio>: Áudio. Ex: <audio controls src="url"></audio>
+<video>: Vídeo. Ex: <video controls src="url"></video>
+<iframe>: Conteúdo embutido (como vídeos do YouTube).
+
+🗂 Tags de Listas
+<ul>: Lista não ordenada (com pontos).
+<ol>: Lista ordenada (com números).
+<li>: Item de lista.
+<dl>: Lista de definição.
+<dt>: Termo de definição.
+<dd>: Descrição do termo.
+
+🖋 Tags de Formulário
+<form>: Formulário.
+<input>: Campo de entrada.
+Tipos: text, email, password, checkbox, radio, submit.
+<label>: Rótulo para campos.
+<textarea>: Campo de texto multilinha.
+<select>: Lista suspensa.
+<option>: Opções na lista.
+<button>: Botão clicável.
+<fieldset>: Agrupa campos.
+<legend>: Título do <fieldset>.
+
+🛠 Tags de Tabelas
+<table>: Tabela.
+<tr>: Linha da tabela.
+<th>: Cabeçalho da tabela.
+<td>: Célula da tabela.
+<thead>: Cabeçalho da tabela.
+<tbody>: Corpo da tabela.
+<tfoot>: Rodapé da tabela.
+<caption>: Título da tabela.
+
+⚙️ Tags de Scripts e Estilos
+<style>: CSS interno.
+<link>: CSS externo. Ex: <link rel="stylesheet" href="styles.css">
+<script>: JavaScript.
+<noscript>: Conteúdo alternativo se JS estiver desabilitado.

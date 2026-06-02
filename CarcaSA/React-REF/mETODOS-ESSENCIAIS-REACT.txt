@@ -1,0 +1,452 @@
+📚 Métodos Essenciais em React: Guia Completo com Exemplos Práticos
+Vamos explorar os principais métodos e hooks do React, com exemplos práticos de como utilizá-los em seus projetos.
+
+1. useState - Gerenciamento de Estado Básico
+O que faz: Gerencia estado em componentes funcionais.
+
+jsx
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0); // Inicializa com 0
+
+  return (
+    <div>
+      <p>Você clicou {count} vezes</p>
+      <button onClick={() => setCount(count + 1)}>
+        Incrementar
+      </button>
+      <button onClick={() => setCount(0)}>
+        Resetar
+      </button>
+    </div>
+  );
+}
+Quando usar: Para qualquer estado local do componente que precise ser atualizado e cause re-renderização.
+
+2. useEffect - Efeitos Colaterais
+O que faz: Executa efeitos colaterais em componentes funcionais.
+
+jsx
+import React, { useState, useEffect } from 'react';
+
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+
+  // Executa quando userId muda
+  useEffect(() => {
+    fetch(`/api/users/${userId}`)
+      .then(response => response.json())
+      .then(data => setUser(data));
+      
+    // Função de limpeza (opcional)
+    return () => {
+      // Cancela requisições pendentes
+    };
+  }, [userId]); // Array de dependências
+
+  return <div>{user ? user.name : 'Carregando...'}</div>;
+}
+Quando usar: Para chamadas API, subscriptions, manipulação manual do DOM, etc.
+
+3. useContext - Compartilhamento de Estado Global
+O que faz: Acessa o contexto sem precisar de props drilling.
+
+jsx
+import React, { useContext, createContext } from 'react';
+
+// 1. Criar contexto
+const ThemeContext = createContext('light');
+
+function App() {
+  return (
+    // 2. Prover valor
+    <ThemeContext.Provider value="dark">
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
+}
+
+function Toolbar() {
+  // 3. Consumir valor
+  const theme = useContext(ThemeContext);
+  return <div style={{ background: theme === 'dark' ? '#333' : '#FFF' }}>Tema: {theme}</div>;
+}
+Quando usar: Para dados que precisam ser acessados por muitos componentes em diferentes níveis.
+
+4. useReducer - Estado Complexo
+O que faz: Gerencia estado complexo com lógica de atualização centralizada.
+
+jsx
+import React, { useReducer } from 'react';
+
+// Reducer function
+function counterReducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    case 'reset':
+      return { count: 0 };
+    default:
+      throw new Error();
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(counterReducer, { count: 0 });
+
+  return (
+    <div>
+      Count: {state.count}
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+    </div>
+  );
+}
+Quando usar: Quando a lógica de atualização do estado é complexa ou quando o próximo estado depende do anterior.
+
+5. useRef - Referências Mutáveis
+O que faz: Cria referências mutáveis que persistem entre re-renderizações.
+
+jsx
+import React, { useRef, useEffect } from 'react';
+
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null);
+
+  const focusInput = () => {
+    inputEl.current.focus();
+    inputEl.current.style.backgroundColor = 'yellow';
+  };
+
+  return (
+    <>
+      <input ref={inputEl} type="text" />
+      <button onClick={focusInput}>Focar no input</button>
+    </>
+  );
+}
+Quando usar: Para acessar elementos DOM diretamente ou manter valores mutáveis sem causar re-renderização.
+
+6. useMemo - Memoização de Valores
+O que faz: Memoriza valores calculados para otimização.
+
+jsx
+import React, { useMemo, useState } from 'react';
+
+function ExpensiveComponent({ list }) {
+  const [filter, setFilter] = useState('');
+
+  // Só recalcula quando 'list' ou 'filter' mudam
+  const filteredList = useMemo(() => {
+    return list.filter(item => item.includes(filter));
+  }, [list, filter]);
+
+  return (
+    <div>
+      <input value={filter} onChange={(e) => setFilter(e.target.value)} />
+      <ul>
+        {filteredList.map(item => <li key={item}>{item}</li>)}
+      </ul>
+    </div>
+  );
+}
+Quando usar: Para otimizar cálculos caros que não precisam ser refeitos em toda renderização.
+
+7. useCallback - Memoização de Funções
+O que faz: Memoriza funções para evitar recriação desnecessária.
+
+jsx
+import React, { useState, useCallback } from 'react';
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
+  // Só recria a função quando 'count' muda
+  const handleClick = useCallback(() => {
+    console.log('Count:', count);
+  }, [count]);
+
+  return (
+    <div>
+      <ChildComponent onClick={handleClick} />
+      <button onClick={() => setCount(c => c + 1)}>Increment</button>
+    </div>
+  );
+}
+
+const ChildComponent = React.memo(({ onClick }) => {
+  console.log('Child render');
+  return <button onClick={onClick}>Log Count</button>;
+});
+Quando usar: Quando passar callbacks para componentes filhos otimizados (com React.memo).
+
+8. React.memo - Otimização de Componentes
+O que faz: Memoriza componentes para evitar re-renderizações desnecessárias.
+
+jsx
+import React, { useState } from 'react';
+
+const ExpensiveComponent = React.memo(({ value }) => {
+  console.log('Componente renderizado');
+  return <div>{value}</div>;
+});
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+  const [value] = useState('Texto fixo');
+
+  return (
+    <div>
+      <ExpensiveComponent value={value} />
+      <button onClick={() => setCount(c => c + 1)}>
+        Renderizar pai ({count})
+      </button>
+    </div>
+  );
+}
+Quando usar: Para componentes que renderizam com as mesmas props e são caros para renderizar.
+
+9. useLayoutEffect - Efeitos Síncronos
+O que faz: Similar ao useEffect, mas executa sincronamente após todas as mutações do DOM.
+
+jsx
+import React, { useLayoutEffect, useRef, useState } from 'react';
+
+function MeasureElement() {
+  const [width, setWidth] = useState(0);
+  const ref = useRef();
+
+  useLayoutEffect(() => {
+    // Mede a largura após o DOM ser atualizado
+    setWidth(ref.current.getBoundingClientRect().width);
+  }, []);
+
+  return (
+    <div ref={ref}>
+      <p>Largura: {width}px</p>
+    </div>
+  );
+}
+Quando usar: Quando você precisa ler layout do DOM e fazer mutações síncronas antes da pintura na tela.
+
+10. useImperativeHandle - Personalizar Refs
+O que faz: Personaliza a instância que é exposta quando usando ref em componentes.
+
+jsx
+import React, { useRef, useImperativeHandle, forwardRef } from 'react';
+
+const FancyInput = forwardRef((props, ref) => {
+  const inputRef = useRef();
+  
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current.focus();
+    },
+    shake: () => {
+      // Animação de shake
+      inputRef.current.style.animation = 'shake 0.5s';
+    }
+  }));
+
+  return <input ref={inputRef} {...props} />;
+});
+
+function Parent() {
+  const inputRef = useRef();
+
+  return (
+    <div>
+      <FancyInput ref={inputRef} />
+      <button onClick={() => inputRef.current.focus()}>Focus</button>
+      <button onClick={() => inputRef.current.shake()}>Shake</button>
+    </div>
+  );
+}
+Quando usar: Quando você precisa expor métodos específicos de um componente filho para o pai.
+
+11. useDebugValue - Debug de Hooks Customizados
+O que faz: Exibe labels para hooks customizados no React DevTools.
+
+jsx
+import { useState, useEffect, useDebugValue } from 'react';
+
+function useOnlineStatus() {
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    function handleOnline() { setIsOnline(true); }
+    function handleOffline() { setIsOnline(false); }
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+    
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+
+  // Mostra o status no DevTools
+  useDebugValue(isOnline ? 'Online' : 'Offline');
+
+  return isOnline;
+}
+
+function App() {
+  const isOnline = useOnlineStatus();
+  return <div>Status: {isOnline ? 'Online' : 'Offline'}</div>;
+}
+Quando usar: Para hooks customizados que você quer debugar mais facilmente.
+
+12. useTransition - Renderização Não Bloqueante
+O que faz: Permite marcar atualizações de estado como não urgentes.
+
+jsx
+import { useState, useTransition } from 'react';
+
+function SearchBox() {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+  const [isPending, startTransition] = useTransition();
+
+  function handleChange(e) {
+    const value = e.target.value;
+    setQuery(value);
+    
+    // Marca a atualização como não urgente
+    startTransition(() => {
+      // Simula busca pesada
+      const items = Array(10000).fill().map((_, i) => `Resultado ${i} para "${value}"`);
+      setResults(items);
+    });
+  }
+
+  return (
+    <div>
+      <input type="text" value={query} onChange={handleChange} />
+      {isPending && <span>Carregando...</span>}
+      <ul>
+        {results.slice(0, 10).map((result, i) => (
+          <li key={i}>{result}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+Quando usar: Para otimizar a responsividade da UI durante atualizações pesadas de estado.
+
+13. useDeferredValue - Diferir Atualizações
+O que faz: Diferi a atualização de uma parte da UI.
+
+jsx
+import { useState, useDeferredValue } from 'react';
+
+function SearchResults({ query }) {
+  const deferredQuery = useDeferredValue(query);
+  
+  // Simula resultados pesados
+  const results = Array(10000).fill().map((_, i) => `Resultado ${i} para "${deferredQuery}"`);
+
+  return (
+    <ul>
+      {results.slice(0, 10).map((result, i) => (
+        <li key={i}>{result}</li>
+      ))}
+    </ul>
+  );
+}
+
+function App() {
+  const [query, setQuery] = useState('');
+  
+  return (
+    <div>
+      <input 
+        type="text" 
+        value={query} 
+        onChange={(e) => setQuery(e.target.value)} 
+      />
+      <SearchResults query={query} />
+    </div>
+  );
+}
+Quando usar: Similar ao useTransition, mas para valores em vez de atualizações de estado.
+
+14. useId - Gerar IDs Únicos
+O que faz: Gera IDs únicos estáveis entre server e client.
+
+jsx
+import { useId } from 'react';
+
+function LoginForm() {
+  const emailId = useId();
+  const passwordId = useId();
+
+  return (
+    <form>
+      <label htmlFor={emailId}>Email:</label>
+      <input id={emailId} type="email" />
+      
+      <label htmlFor={passwordId}>Senha:</label>
+      <input id={passwordId} type="password" />
+    </form>
+  );
+}
+Quando usar: Para gerar IDs únicos para acessibilidade ou integração com bibliotecas.
+
+15. Custom Hooks - Reutilização de Lógica
+O que faz: Permite extrair lógica reutilizável.
+
+jsx
+import { useState, useEffect } from 'react';
+
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowSize;
+}
+
+function ResponsiveComponent() {
+  const { width } = useWindowSize();
+  
+  return (
+    <div>
+      {width < 768 ? 'Mobile' : 'Desktop'}
+    </div>
+  );
+}
+Quando usar: Sempre que você tem lógica que pode ser reutilizada em vários componentes.
+
+Conclusão
+Estes são os principais métodos e hooks do React que você usará no dia a dia. Cada um tem seu propósito específico:
+
+Estado: useState, useReducer
+
+Efeitos: useEffect, useLayoutEffect
+
+Otimização: useMemo, useCallback, React.memo
+
+Refs: useRef, useImperativeHandle
+
+Contexto: useContext
+
+Novos recursos: useTransition, useDeferredValue, useId

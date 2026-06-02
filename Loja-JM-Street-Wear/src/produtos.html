@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONFIRA NOSSOS PRODUTOS</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body style="font-family: verdana; font-size: 16px;">
+
+
+    <button data-action="click->cart#addItem"
+        data-product-id="123"
+        data-product-name="Camiseta Thrasher"
+        data-product-price="89.90"
+        data-product-image="/img/produtos/camiseta-thrasher.jpg"
+        class="btn-primary">
+  Adicionar ao Carrinho
+</button>
+
+<!-- Badge do Carrinho (navbar) -->
+<div data-controller="cart" class="relative">
+  <button class="flex items-center">
+    🛒
+    <span data-cart-target="itemsCount" 
+          class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+      0
+    </span>
+  </button>
+
+  <!-- Dropdown do Carrinho -->
+  <div class="hidden absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4" data-cart-target="itemsList">
+    <div data-cart-target="emptyMessage" class="text-gray-500">Carrinho vazio</div>
+    <div class="mt-4 font-bold" data-cart-target="totalPrice">R$ 0.00</div>
+  </div>
+</div>
+
+
+
+    <!--Criando a tabela para definir a estrutura -->
+    <table  align="center" width="1000px">
+        <tr>
+            <!--lINHA 1-->
+            <td><img src="banner.png" alt="Produtos JM street wear" title="JM"></td>
+
+        </tr>
+        <tr height="35px">
+            <!--lINHA 2-->
+            <th>
+                <a href="index.html">HOME</a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;
+                <a href="produtos.html">PRODUTOS</a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;
+                <a href="contato.html">CONTATO</a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;
+                <a href="quemSomos.html">QUEM SOMOS</a> &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;
+
+            </th>
+
+        </tr>
+        <tr height="400px"  valign="top">
+            <!--Linha 3-->
+            <td>
+
+                <h3>MARCAS</h3>
+                <h5> Thrasher Magazine</h5>
+                <h5> Independent Trucks</h5>
+                <h5> Santa cruz</h5>
+                <h5> Vans</h5>
+                
+               
+
+                <P>
+                    <h3>PRODUTOS</h3>
+                    <h5> Camisetas</h5>
+                    <h5> Meias</h5>
+                    <h5> Bones</h5>
+                </P>
+            </td>
+
+        </tr>
+        <tr align="center" height="180px" bgcolor="#353535">
+            <!--Linha 4-->
+
+            <td>
+                <font color="silver">
+                    Entre em contato através do meu email: krustyopalhaco@tiozinho.com
+                    <br>
+                    ou utilize nosso telefone de contato (666-098765)
+                </font>
+
+            </td>
+
+        </tr>
+    </table>
+
+    
+
+</body>
+
+</html>
